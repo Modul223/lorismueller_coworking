@@ -21,9 +21,6 @@ public class Booking {
   @Column(nullable = false)
   private LocalDateTime end;
 
-  @Column(nullable = false)
-  private boolean bookingForWorkplace;
-
   @ManyToOne(optional = false)
   @Fetch(FetchMode.JOIN)
   private User user;
@@ -58,14 +55,6 @@ public class Booking {
 
   public void setEnd(LocalDateTime end) {
     this.end = end;
-  }
-
-  public boolean isBookingForWorkplace() {
-    return bookingForWorkplace;
-  }
-
-  public void setBookingForWorkplace(boolean bookingForWorkplace) {
-    this.bookingForWorkplace = bookingForWorkplace;
   }
 
   public User getUser() {
