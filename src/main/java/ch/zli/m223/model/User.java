@@ -4,8 +4,6 @@ import javax.persistence.*;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import java.time.LocalDateTime;
-
 @Entity
 public class User {
   @Id
@@ -25,7 +23,7 @@ public class User {
   @Column(nullable = false)
   private String password;
 
-  
+
   public Long getId() {
     return id;
   }
