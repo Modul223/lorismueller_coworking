@@ -54,7 +54,4 @@ public class Booking {
     this.bookingForWorkplace = bookingForWorkplace;
   }
 
-
-
-
 }
