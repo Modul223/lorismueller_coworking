@@ -28,11 +28,11 @@ public class Booking {
   @Fetch(FetchMode.JOIN)
   private User user;
 
-  @ManyToOne(optional = false)
+  @ManyToOne(optional = true)
   @Fetch(FetchMode.JOIN)
   private Workplace workplace;
 
-  @ManyToOne(optional = false)
+  @ManyToOne(optional = true)
   @Fetch(FetchMode.JOIN)
   private PostOfficeBox postOfficeBox;
 
