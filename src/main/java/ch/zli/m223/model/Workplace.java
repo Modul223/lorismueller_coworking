@@ -1,7 +1,13 @@
 package ch.zli.m223.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Workplace {
@@ -15,6 +21,11 @@ public class Workplace {
 
   @Column(nullable = false)
   private int table;
+
+  @OneToMany(mappedBy = "workplace")
+  @JsonIgnoreProperties("workplace")
+  @Fetch(FetchMode.JOIN)
+  private Set<Booking> bookings;
 
   public Long getId() {
     return id;
@@ -40,6 +51,12 @@ public class Workplace {
     this.table = table;
   }
 
-  
+  public Set<Booking> getBookings() {
+    return bookings;
+  }
+
+  public void setBookings(Set<Booking> bookings) {
+    this.bookings = bookings;
+  }
 
 }

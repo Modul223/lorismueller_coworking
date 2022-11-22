@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.*;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Report {
@@ -18,6 +20,10 @@ public class Report {
 
   @Column(nullable = false)
   private Date date;
+
+  @ManyToOne(optional = false)
+  @Fetch(FetchMode.JOIN)
+  private User user;
 
   public Long getId() {
     return id;
@@ -43,9 +49,12 @@ public class Report {
     this.date = date;
   }
 
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
   
-
-  
-
-
 }

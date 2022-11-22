@@ -1,8 +1,14 @@
 package ch.zli.m223.model;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class User {
@@ -21,8 +27,22 @@ public class User {
   private String email;
 
   @Column(nullable = false)
-  private String password;
+  private String password;  
 
+  @ManyToOne(optional = false)
+  @Fetch(FetchMode.JOIN)
+  private Role role;
+
+  @OneToMany(mappedBy = "user")
+  @JsonIgnoreProperties("user")
+  @Fetch(FetchMode.JOIN)
+  private Set<Report> reports;
+
+  @OneToMany(mappedBy = "user")
+  @JsonIgnoreProperties("user")
+  @Fetch(FetchMode.JOIN)
+  private Set<Booking> bookings;
+  
 
   public Long getId() {
     return id;
@@ -64,7 +84,28 @@ public class User {
     this.password = password;
   }
 
-  
+  public Role getRole() {
+    return role;
+  }
 
+  public void setRole(Role role) {
+    this.role = role;
+  }
+
+  public Set<Report> getReports() {
+    return reports;
+  }
+
+  public void setReports(Set<Report> reports) {
+    this.reports = reports;
+  }
+
+  public Set<Booking> getBookings() {
+    return bookings;
+  }
+
+  public void setBookings(Set<Booking> bookings) {
+    this.bookings = bookings;
+  }
 
 }
