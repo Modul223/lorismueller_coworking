@@ -30,6 +30,7 @@ public class User {
   private String password;  
 
   @ManyToOne(optional = false)
+  @JsonIgnoreProperties("user")
   @Fetch(FetchMode.JOIN)
   private Role role;
 
