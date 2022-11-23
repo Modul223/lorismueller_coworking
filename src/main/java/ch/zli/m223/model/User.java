@@ -4,7 +4,6 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -14,7 +13,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Schema(readOnly = true)
   private Long id;
 
   @Column(nullable = false)

@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -12,7 +11,6 @@ import org.hibernate.annotations.FetchMode;
 public class Report {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Schema(readOnly = true)
   private Long id;
 
   @Column(nullable = false)

@@ -76,6 +76,7 @@ INSERT INTO
   "Booking" (
     "start",
     "end",
+    "status",
     "user_id",
     "postOfficeBox_id",
     "workplace_id"
@@ -84,6 +85,7 @@ VALUES
   (
     '2022-12-15 08:00:0',
     '2022-12-16 08:00:0',
+    'accepted',
     2,
     1,
     1
@@ -93,6 +95,7 @@ INSERT INTO
   "Booking" (
     "start",
     "end",
+    "status",
     "user_id",
     "postOfficeBox_id",
     "workplace_id"
@@ -101,6 +104,7 @@ VALUES
   (
     '2022-12-14 09:00:0',
     '2022-12-31 09:00:0',
+    'open',
     2,
     2,
     2

@@ -15,7 +15,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 
 @Path("/bookings")
-@Tag(name = "Bookings", description = "Handling of bookings")
+@Tag(name = "Bookings by Admins", description = "Handling of bookings by admins")
 public class BookingController {
 
   @Inject

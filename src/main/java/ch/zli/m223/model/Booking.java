@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
@@ -12,7 +11,6 @@ import org.hibernate.annotations.FetchMode;
 public class Booking {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Schema(readOnly = true)
   private Long id;
 
   @Column(nullable = false)
@@ -20,6 +18,9 @@ public class Booking {
 
   @Column(nullable = false)
   private LocalDateTime end;
+
+  @Column(nullable = false)
+  private String status;
 
   @ManyToOne(optional = false)
   @Fetch(FetchMode.JOIN)
@@ -81,6 +82,12 @@ public class Booking {
     this.postOfficeBox = postOfficeBox;
   }
 
-  
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
 }

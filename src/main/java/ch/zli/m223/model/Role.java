@@ -3,19 +3,16 @@ package ch.zli.m223.model;
 import java.util.Set;
 
 import javax.persistence.*;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
 public class Role {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Schema(readOnly = true)
   private Long id;
 
   @Column(nullable = false)
