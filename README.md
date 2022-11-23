@@ -1,6 +1,6 @@
-# Übungsprojekt: Punch Clock
+# Abschlussprojekt: Coworking-Space
 
-Punch Clock ist ein Zeiterfassungssystem, welches mit Quarkus entwickelt wird.
+Coworking-Space ist ein Projekt bei welchem Mitglieder Büroplätze und Postfächer buchen können. Dieses Projekt wurde mit Quarkus entwickelt.
 
 ## Erste Schritte
 
@@ -30,3 +30,25 @@ Die Daten werden in einer PostgreSQL-Datenbank gespeichert. In der Entwicklungsu
 ## Automatische Tests
 
 Die automatischen Tests können mit `./mvnw quarkus:test` ausgeführt werden. Für die automatischen Tests wird nicht die PostgreSQL-Datenbank verwendet, sondern eine H2-Datenbank, welche sich im Arbeitsspeicher während der Ausführung befindet.
+
+## Zugangsdaten
+
+### Member Daten
+| Email                    | Password |
+|--------------------------|----------|
+| davidbucher@gmail.com    | 1234     |
+
+### Admin Daten
+| Email                   | Password |
+|-------------------------|----------|
+| alexchristen@gmail.com  | 1324     |
+
+## Testdaten
+
+Die Testdaten liegen im File import.sql im Ordner /resources und werden beim Start des Projektes automatisch in die Datenbank geladen
+
+# Zusätzliches
+## Mein Github
+Mein Gituhub ist erreichbar unter diesem Link:
+- https://github.com/Modul223/lorismueller_coworking
+
