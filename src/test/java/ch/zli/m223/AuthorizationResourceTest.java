@@ -1,10 +1,6 @@
 package ch.zli.m223;
 
 import org.junit.jupiter.api.Test;
-
-import ch.zli.m223.model.Credential;
-import ch.zli.m223.model.Role;
-import ch.zli.m223.model.User;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
 

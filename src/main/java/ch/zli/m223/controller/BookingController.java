@@ -23,7 +23,7 @@ public class BookingController {
 
   
   @POST
-  @RolesAllowed({"Admin", "Member"})
+  @RolesAllowed({"Admin"})
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @Operation(summary = "Creates a new booking.", description = "Creates a new booking and returns the newly added user.")
@@ -33,7 +33,7 @@ public class BookingController {
 
   @Path("/{id}")
   @GET
-  @RolesAllowed({"Admin", "Member"})
+  @RolesAllowed({"Admin"})
   @Produces(MediaType.APPLICATION_JSON)
   @Operation(summary = "Find Booking by id", description = "Returns a booking with the given id.")
   public Booking findBookingbyId(@PathParam("id") Long id) {
