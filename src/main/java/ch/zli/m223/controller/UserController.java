@@ -23,13 +23,14 @@ public class UserController {
   @POST
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
-  @Operation(summary = "Creates a new user.", description = "Creates a new user and returns the newly added user.")
+  @Operation(summary = "Creates a new user / Also for the Registration", description = "Creates a new user and returns the newly added user (Registration).")
   public User create(User user) {
     return userService.createUser(user);
   }
 
   @Path("/{id}")
   @GET
+  @RolesAllowed({"Admin"})
   @Produces(MediaType.APPLICATION_JSON)
   @Operation(summary = "Find User by id", description = "Returns a user with the given id.")
   public User findUserbyId(@PathParam("id") Long id) {
@@ -38,6 +39,7 @@ public class UserController {
 
   @Path("/{id}")
   @DELETE
+  @RolesAllowed({"Admin"})
   @Operation(summary = "Deletes an user.", description = "Deletes an user by its id.")
   public void delete(@PathParam("id") Long id) {
     userService.deleteUser(id);
@@ -45,6 +47,7 @@ public class UserController {
 
   @Path("/{id}")
   @PUT
+  @RolesAllowed({"Admin"})
   @Operation(summary = "Updates an user.", description = "Updates an user by its id.")
   public User update(@PathParam("id") Long id, User user) {
     return userService.updateUser(id, user);

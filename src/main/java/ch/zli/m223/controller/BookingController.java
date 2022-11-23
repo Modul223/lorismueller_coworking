@@ -23,6 +23,7 @@ public class BookingController {
 
   
   @POST
+  @RolesAllowed({"Admin", "Member"})
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @Operation(summary = "Creates a new booking.", description = "Creates a new booking and returns the newly added user.")
@@ -32,6 +33,7 @@ public class BookingController {
 
   @Path("/{id}")
   @GET
+  @RolesAllowed({"Admin", "Member"})
   @Produces(MediaType.APPLICATION_JSON)
   @Operation(summary = "Find Booking by id", description = "Returns a booking with the given id.")
   public Booking findBookingbyId(@PathParam("id") Long id) {
@@ -39,6 +41,7 @@ public class BookingController {
   }
 
   @GET
+  @RolesAllowed({"Admin"})
   @Produces(MediaType.APPLICATION_JSON)
   @Operation(summary = "Find all Booking", description = "Returns all bookings in a List.")
   public List<Booking> findBookings() {
@@ -47,6 +50,7 @@ public class BookingController {
 
   @Path("/{id}")
   @DELETE
+  @RolesAllowed({"Admin", "Member"})
   @Operation(summary = "Deletes a booking.", description = "Deletes a booking by its id.")
   public void deleteBooking(@PathParam("id") Long id) {
     bookingService.deleteBooking(id);
@@ -54,6 +58,7 @@ public class BookingController {
 
   @Path("/{id}")
   @PUT
+  @RolesAllowed({"Admin"})
   @Operation(summary = "Updates an booking.", description = "Updates an bookoing by its id.")
   public Booking updateBooking(@PathParam("id") Long id, Booking booking) {
     return bookingService.updateBooking(id, booking);

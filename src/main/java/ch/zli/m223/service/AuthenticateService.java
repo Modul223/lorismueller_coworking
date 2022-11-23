@@ -23,11 +23,24 @@ public class AuthenticateService {
     Optional<User> client = userService.findWithEmail(credential.getEmail());
   
     try {
-      if (client.isPresent() && client.get().getPassword().equals(credential.getPassword())) {
+      if (client.isPresent() && client.get().getPassword().equals(credential.getPassword()) && client.get().getRole().getId() == 1) {
         String token = Jwt
             .issuer("https://zli.example.com/")
             .upn(credential.getEmail())
-            .groups(new HashSet<>(Arrays.asList("Member", "Admin")))
+            .groups(new HashSet<>(Arrays.asList("Admin")))
+            .expiresIn(Duration.ofHours(24))
+            .sign();
+        return Response
+            .ok(client.get())
+            .cookie(new NewCookie("coworking", token))
+            .header("Authorization", "Bearer" + token)
+            .build();
+      }
+      else if (client.isPresent() && client.get().getPassword().equals(credential.getPassword()) && client.get().getRole().getId() == 2) {
+        String token = Jwt
+            .issuer("https://zli.example.com/")
+            .upn(credential.getEmail())
+            .groups(new HashSet<>(Arrays.asList("Member")))
             .expiresIn(Duration.ofHours(24))
             .sign();
         return Response
@@ -37,7 +50,7 @@ public class AuthenticateService {
             .build();
       }
     } catch (Exception exception) {
-      System.err.println("Could not validate passowrd!");
+      System.err.println("Could not validate password!");
     }
   
     return Response.status(Response.Status.FORBIDDEN).build();

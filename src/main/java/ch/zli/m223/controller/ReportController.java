@@ -1,5 +1,6 @@
 package ch.zli.m223.controller;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -19,6 +20,7 @@ public class ReportController {
   ReportService reportService;
   
   @POST
+  @RolesAllowed({"Member", "Admin"})
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.APPLICATION_JSON)
   @Operation(summary = "Creates a new report.", description = "Creates a new report and returns the newly added report.")
