@@ -8,7 +8,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class User {
@@ -34,12 +34,12 @@ public class User {
   private Role role;
 
   @OneToMany(mappedBy = "user")
-  @JsonIgnoreProperties("user")
+  @JsonIgnore
   @Fetch(FetchMode.JOIN)
   private Set<Report> reports;
 
   @OneToMany(mappedBy = "user")
-  @JsonIgnoreProperties("user")
+  @JsonIgnore
   @Fetch(FetchMode.JOIN)
   private Set<Booking> bookings;
   

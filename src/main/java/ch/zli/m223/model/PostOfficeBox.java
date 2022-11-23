@@ -7,6 +7,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -20,7 +21,7 @@ public class PostOfficeBox {
   private String category;
 
   @OneToMany(mappedBy = "postOfficeBox")
-  @JsonIgnoreProperties("postOfficeBox")
+  @JsonIgnore
   @Fetch(FetchMode.JOIN)
   private Set<Booking> bookings;
 

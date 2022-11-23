@@ -6,6 +6,8 @@ import javax.persistence.*;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -20,7 +22,7 @@ public class Role {
   private String type;
 
   @OneToMany(mappedBy = "role")
-  @JsonIgnoreProperties("role")
+  @JsonIgnore
   @Fetch(FetchMode.JOIN)
   private Set<User> users;
 
